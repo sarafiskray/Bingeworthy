@@ -1,6 +1,30 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Show from './Show' 
+import styled from 'styled-components'
+
+const Home = styled.div`
+    text-align: center;
+`
+const Header = styled.div`
+    padding: 100px 100px 10px 100px;
+
+    h1 {
+        font-size: 42px;
+    }
+`
+const Subheader = styled.div`
+    font-weight: 300;
+    font-size: 26px;
+`
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    padding: 20px;
+`
+
 
 const Shows = () => {
 
@@ -23,17 +47,13 @@ const Shows = () => {
     })
 
     return(
-        <div className="home">
-            <div className="header">
+        <Home>
+            <Header>
                 <h1>Bingeworthy</h1>
-                <p className="subheader">
-                    Find shows you like, from people you trust.
-                </p>
-            </div>
-            <div className="grid">
-                {listShows}
-            </div>
-        </div>
+                <Subheader>Find shows you like, from people you trust.</Subheader>
+            </Header>
+            <Grid>{listShows}</Grid>
+        </Home>
         
        
     )
