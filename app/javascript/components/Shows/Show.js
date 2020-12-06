@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 const Show = (props) => {
 
@@ -19,7 +20,7 @@ const Show = (props) => {
                 {avg_score}
             </div>
             <div className="show-link">
-                <a href={"/shows/" + slug}>See Reviews</a>
+                <Link to={"/shows/" + slug}>See Reviews</Link>
             </div>
         </div>
     )
