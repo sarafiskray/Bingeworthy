@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
+import Show from './Show' 
 
 const Shows = () => {
 
@@ -10,12 +11,15 @@ const Shows = () => {
         axios.get('/api/v1/shows.json')
         .then( resp => {
             setShows(resp.data.data) 
+            console.log(resp)
         })
         .catch ( resp => console.log(resp) )
     }, [shows.length])
 
     const listShows = shows.map ( item => { 
-        return (<li key={item.attributes.title}>{item.attributes.title}</li>)
+        return (
+            <Show key={item.attributes.title} attributes={item.attributes} />
+        )
     })
 
     return(
@@ -27,7 +31,7 @@ const Shows = () => {
                 </p>
             </div>
             <div className="grid">
-                <ul>{listShows}</ul>
+                {listShows}
             </div>
         </div>
         
