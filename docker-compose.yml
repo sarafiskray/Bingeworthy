@@ -1,0 +1,16 @@
+#What's Good Saraf, this will be the file where I specify the versions of the applications we will be having dockerized and how they communicate through their ports
+#As you can see right now it is only the Database but I will add the nginx deets soon
+
+
+
+# Use postgres/example user/password credentials
+version: '3.3'
+
+services:
+
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: #have to configure
