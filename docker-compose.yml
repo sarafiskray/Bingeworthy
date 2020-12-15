@@ -1,5 +1,7 @@
-#What's Good Saraf, this will be the file where I specify the versions of the applications we will be having dockerized and how they communicate through their ports
-#As you can see right now it is only the Database but I will add the nginx deets soon
+#What's Good Saraf, this will be the file where I specify the versions of the applications we will be having dockerized
+#basically another abstraction of the stack to make dockers job easier
+#this deploys a node.js ruby on rails application and a postgreSQL database
+#--PS. Still need to make the network tunnel for the two containers
 
 
 
