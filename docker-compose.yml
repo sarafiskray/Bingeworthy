@@ -3,47 +3,21 @@
 
 
 
-version: "3.7"
-
+version: "3.9"
 services:
-
-  postgres:
-    image: postgres:12.1
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: Bingeworthy
-      POSTGRES_PASSWORD: test_db_password
-    ports: 
-      - '5432:5432'
+      POSTGRES_PASSWORD: password
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - drkiq-postgres:/var/lib/postgresql/data
-
-
-  Bingeworthy:
-    build:
-      context: .
-      args:
-        USER_ID: "${USER_ID:-1000}"
-        GROUP_ID: "${GROUP_ID:-1000}"
-    depends_on:
-      - postgres
-    volumes:
-      - type: bind
-        source: ./Bingeworthy
-        target: /opt/app/drkiq
+      - .:/Bingeworthy
     ports:
-      - '8010:8010'
-    env_file:
-      - .env
-
-
-  nginx:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.nginx
+      - "3000:3000"
     depends_on:
-      - Bingeworthy
-    ports:
-      - '8020:8020'
+      - db
 
-volumes:
-  Bingeworthy-postgres:
