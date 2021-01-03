@@ -25,7 +25,7 @@ const Column = styled.div`
     }
 `
 
-const HeaderWrapper = styled.div`
+const ContentWrapper = styled.div`
     padding-left: 50px;
 `
 
@@ -52,7 +52,7 @@ const Show = (props) => {
     return(
         <Wrapper>
             <Column>
-                <HeaderWrapper>
+                <ContentWrapper>
                     {loaded &&
                     <Header
                         attributes={show.data.attributes}
@@ -62,7 +62,7 @@ const Show = (props) => {
                     <div className="reviews">  
                         [Reviews Will Go Here]
                     </div>`
-                </HeaderWrapper>
+                </ContentWrapper>
             </Column>
             <Column>
                 <div className="review-form">
