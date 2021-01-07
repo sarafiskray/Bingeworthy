@@ -27,7 +27,7 @@ const Header = (props) => {
 
     return (
         <Wrapper>
-            <h1> <img src={image_url} alt={title} /> {title + " (" + year + ")"} </h1>
+            <h1 className="show-title"> <img src={image_url} alt={title} /> {title + " (" + year + ")"} </h1>
             <div>
                 <TotalReviews> {numReviews + " user reviews."} </TotalReviews>
                 <div className="starRating"> {avg_score + " (star rating will go here)"} </div>

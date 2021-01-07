@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Header from './Header'
+import Review from './Review'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -34,6 +35,7 @@ const Show = (props) => {
 
     const [show, setShow] = useState({})
     const [review, setReview] = useState({})
+    //const [reviews, setReviews] = useState({})
     const [loaded, setLoaded] = useState(false)
 
     useEffect( () => {
@@ -44,10 +46,26 @@ const Show = (props) => {
         .then( resp => { 
             setShow(resp.data)
             setLoaded(true)
+            //console.log(resp.data.included)
+
         })
 
         .catch( resp => console.log(resp))
     }, [])
+
+    let reviews
+    if (loaded && show.included.length > 0) {
+        reviews = show.included.map( (review, index) => {
+            return (
+                <Review
+                    key = {index}
+                    headline = {review.attributes.headline}
+                    description = {review.attributes.description}
+                    score = {review.attributes.score}
+                />
+            )
+        })
+    } 
 
     return(
         <Wrapper>
@@ -60,7 +78,7 @@ const Show = (props) => {
                     />
                     }
                     <div className="reviews">  
-                        [Reviews Will Go Here]
+                        {reviews}
                     </div>`
                 </ContentWrapper>
             </Column>
