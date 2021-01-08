@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Rating from '../Rating/Rating'
 
 const ReviewCard = styled.div`
     border-radius: 4px;
@@ -26,7 +27,7 @@ const Review = (props) => {
                 {props.description}
             </Description>
             <div className="review-rating">
-                {props.score}
+                <Rating score={props.score} />
             </div>
         </ReviewCard>
     )
