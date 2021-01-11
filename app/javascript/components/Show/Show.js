@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Fragment} from 'react'
 import axios from 'axios'
 import Header from './Header'
 import Review from './Review'
+import ReviewForm from './ReviewForm'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -69,24 +70,24 @@ const Show = (props) => {
 
     return(
         <Wrapper>
-            <Column>
-                <ContentWrapper>
-                    {loaded &&
-                    <Header
-                        attributes={show.data.attributes}
-                        reviews= {show.included}
-                    />
-                    }
-                    <div className="reviews">  
-                        {reviews}
-                    </div>`
-                </ContentWrapper>
-            </Column>
-            <Column>
-                <div className="review-form">
-                    [Review Form Will Go Here]
-                </div>
-            </Column>
+            { loaded &&
+            <Fragment>
+                <Column>
+                    <ContentWrapper>
+                        <Header
+                            attributes={show.data.attributes}
+                            reviews= {show.included}
+                        />  
+                        <div className="reviews">  
+                            {reviews}
+                        </div>`
+                    </ContentWrapper>
+                </Column>
+                <Column>
+                    <ReviewForm/>
+                </Column>
+            </Fragment>
+            }
         </Wrapper>
     )
 }
