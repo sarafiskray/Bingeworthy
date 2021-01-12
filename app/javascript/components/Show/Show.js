@@ -35,7 +35,7 @@ const ContentWrapper = styled.div`
 const Show = (props) => {
 
     const [show, setShow] = useState({})
-    const [review, setReview] = useState({})
+    const [review, setReview] = useState({headline: '', description: '', score: 0 })
     //const [reviews, setReviews] = useState({})
     const [loaded, setLoaded] = useState(false)
 
@@ -68,7 +68,7 @@ const Show = (props) => {
         axios.post('/api/v1/reviews', { ...review, show_id})
         .then( (resp) => {
             const included = [ ...show.included, resp.data.data]
-            setShow({ ...airline, included})
+            setShow({ ...show, included})
         })
         .catch( resp => console.log(resp))
     }
