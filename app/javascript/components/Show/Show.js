@@ -54,6 +54,31 @@ const Show = (props) => {
         .catch( resp => console.log(resp))
     }, [])
 
+    const handleChange = (e) => {
+        e.preventDefault()
+        console.log(e)
+        
+        setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const show_id = show.data.id
+        axios.post('/api/v1/reviews', { ...review, show_id})
+        .then( (resp) => {
+            const included = [ ...show.included, resp.data.data]
+            setShow({ ...airline, included})
+        })
+        .catch( resp => console.log(resp))
+    }
+
+    const setRating = (score, e) => {
+        e.preventDefault()
+        
+        setReview({...review, score})
+    }
+
     let reviews
     if (loaded && show.included.length > 0) {
         reviews = show.included.map( (review, index) => {
@@ -80,11 +105,17 @@ const Show = (props) => {
                         />  
                         <div className="reviews">  
                             {reviews}
-                        </div>`
+                        </div>
                     </ContentWrapper>
                 </Column>
                 <Column>
-                    <ReviewForm/>
+                    <ReviewForm
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                        setRating={setRating}
+                        review={review}
+                        attributes={show.data.attributes}
+                    />
                 </Column>
             </Fragment>
             }
