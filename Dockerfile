@@ -9,7 +9,8 @@ RUN yarn install --update-checksums --check-files
 RUN gem install bundler
 RUN bundle install
 RUN yarn add axios
-RUN rails db:create
+
+
 COPY . /Bingeworthy
 
 
@@ -26,4 +27,4 @@ EXPOSE 3000
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
-
+CMD ["rake", "db:setup"]
