@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Show from './Show' 
 import styled from 'styled-components'
+import SignUp from '../Cognito/SignUp'
 
 const Home = styled.div`
     text-align: center;
@@ -48,6 +49,8 @@ const Shows = () => {
 
     return(
         <Home>
+            <SignUp>
+            </SignUp>
             <Header>
                 <h1>Bingeworthy</h1>
                 <Subheader>Find shows you like, from people you trust.</Subheader>
