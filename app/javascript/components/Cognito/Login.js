@@ -5,7 +5,8 @@ import UserPool from './UserPool'
 const Login = () => {
 
     const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
+    //dont need this
+    //const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
 
