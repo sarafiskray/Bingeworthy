@@ -39,4 +39,4 @@ yarn-debug.log*
 /config/database.yml
 
 #ignore aws cognito user pool data
-/app/javascript/components/Cognito/UserPool.js
+#/app/javascript/components/Cognito/UserPool.js
