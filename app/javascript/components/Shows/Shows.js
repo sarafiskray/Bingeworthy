@@ -4,6 +4,7 @@ import Show from './Show'
 import styled from 'styled-components'
 import SignUp from '../Cognito/SignUp'
 import Login from '../Cognito/Login'
+import { Account } from '../Cognito/Accounts'
 
 const Home = styled.div`
     text-align: center;
@@ -49,15 +50,17 @@ const Shows = () => {
     })
 
     return(
-        <Home>
-            <SignUp/>
-            <Login/>
-            <Header>
-                <h1>Bingeworthy</h1>
-                <Subheader>Find shows you like, from people you trust.</Subheader>
-            </Header>
-            <Grid>{listShows}</Grid>
-        </Home>
+        <Account>
+            <Home>
+                <SignUp/>
+                <Login/>
+                <Header>
+                    <h1>Bingeworthy</h1>
+                    <Subheader>Find shows you like, from people you trust.</Subheader>
+                </Header>
+                <Grid>{listShows}</Grid>
+            </Home>
+        </Account>
         
        
     )

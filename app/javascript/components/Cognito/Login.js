@@ -1,41 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { AccountContext } from './Accounts'
 import { CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js'
 import UserPool from './UserPool'
 
 const Login = () => {
 
     const [username, setUsername] = useState('')
-    //dont need this
-    //const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const { authenticate } = useContext(AccountContext)
 
 
     const onSubmit = event => {
         event.preventDefault()
 
-        const user = new CognitoUser({
-            Username: username,
-            Pool: UserPool
-        })
-
-        const authDetails = new AuthenticationDetails({
-            Username: username,
-            Password: password
-        })
-
-        user.authenticateUser(authDetails, {
-            onSuccess: data => {
-                console.log('onSuccess: ', data)
-            },
-
-            onFailure: err => {
-                console.log('onFailure: ', err)
-            },
-
-            newPasswordRequired: data => {
-                console.log('newPasswordRequired: ', data)
-            },
-        })
+        authenticate(username, password)
+            .then(data => {
+                console.log('Logged in!', data)
+            })
+            .catch(err => {
+                console.log('Error logging in', err)
+            })
 
     }
 
