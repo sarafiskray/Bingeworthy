@@ -5,7 +5,7 @@ const Status = () => {
 
     const [status, setStatus] = useState(false)
 
-    const { getSession } = useContext(AccountContext)
+    const { getSession, logout } = useContext(AccountContext)
 
     useEffect(() => {
         getSession()
@@ -17,7 +17,12 @@ const Status = () => {
 
     return (
         <div>
-            {status ? 'You are logged in!' : 'Login with username or email'}
+            {status ? (
+                <div>
+                    You are logged in!
+                    <button onClick={logout}>Log Out</button>
+                </div>
+            ) : 'Login with username or email'}
         </div>
     )
 }
