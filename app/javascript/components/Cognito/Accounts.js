@@ -6,6 +6,22 @@ import UserPool from './UserPool'
 const AccountContext = createContext()
 
 const Account = props => {
+    const getSession = async () => 
+        await new Promise((resolve, reject) => {
+            const user = UserPool.getCurrentUser()
+            if (user) {
+                user.getSession((err, session) => {
+                    if (err) {
+                        reject()
+                    } else {
+                        resolve(session)
+                    }
+                })
+            } else {
+                reject()
+            }
+    })
+
     const authenticate = async (Username, Password) => 
         await new Promise((resolve, reject) => {
             const user = new CognitoUser({ Username, Pool: UserPool })
@@ -33,7 +49,8 @@ const Account = props => {
 
     return (
         <AccountContext.Provider value={{
-            authenticate
+            authenticate,
+            getSession
         }}>
             {props.children}
         </AccountContext.Provider>

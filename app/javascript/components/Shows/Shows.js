@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import SignUp from '../Cognito/SignUp'
 import Login from '../Cognito/Login'
 import { Account } from '../Cognito/Accounts'
+import Status from '../Cognito/Status'
 
 const Home = styled.div`
     text-align: center;
@@ -52,6 +53,7 @@ const Shows = () => {
     return(
         <Account>
             <Home>
+                <Status />
                 <SignUp/>
                 <Login/>
                 <Header>
