@@ -51,18 +51,16 @@ const Shows = () => {
     })
 
     return(
-        <Account>
-            <Home>
-                <Status />
-                <SignUp/>
-                <Login/>
-                <Header>
-                    <h1>Bingeworthy</h1>
-                    <Subheader>Find shows you like, from people you trust.</Subheader>
-                </Header>
-                <Grid>{listShows}</Grid>
-            </Home>
-        </Account>
+        <Home>
+            <Status />
+            <SignUp/>
+            <Login/>
+            <Header>
+                <h1>Bingeworthy</h1>
+                <Subheader>Find shows you like, from people you trust.</Subheader>
+            </Header>
+            <Grid>{listShows}</Grid>
+        </Home>
         
        
     )

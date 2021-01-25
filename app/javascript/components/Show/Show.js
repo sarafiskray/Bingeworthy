@@ -4,6 +4,9 @@ import Header from './Header'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import styled from 'styled-components'
+import SignUp from '../Cognito/SignUp'
+import Login from '../Cognito/Login'
+import Status from '../Cognito/Status'
 
 const Wrapper = styled.div`
     margin-left: auto;
@@ -94,32 +97,37 @@ const Show = (props) => {
     } 
 
     return(
-        <Wrapper>
-            { loaded &&
-            <Fragment>
-                <Column>
-                    <ContentWrapper>
-                        <Header
+        <Fragment>
+            <Status />
+            <SignUp/>
+            <Login/>
+            <Wrapper>
+                { loaded &&
+                <Fragment>
+                    <Column>
+                        <ContentWrapper>
+                            <Header
+                                attributes={show.data.attributes}
+                                reviews= {show.included}
+                            />  
+                            <div className="reviews">  
+                                {reviews}
+                            </div>
+                        </ContentWrapper>
+                    </Column>
+                    <Column>
+                        <ReviewForm
+                            handleChange={handleChange}
+                            handleSubmit={handleSubmit}
+                            setRating={setRating}
+                            review={review}
                             attributes={show.data.attributes}
-                            reviews= {show.included}
-                        />  
-                        <div className="reviews">  
-                            {reviews}
-                        </div>
-                    </ContentWrapper>
-                </Column>
-                <Column>
-                    <ReviewForm
-                        handleChange={handleChange}
-                        handleSubmit={handleSubmit}
-                        setRating={setRating}
-                        review={review}
-                        attributes={show.data.attributes}
-                    />
-                </Column>
-            </Fragment>
-            }
-        </Wrapper>
+                        />
+                    </Column>
+                </Fragment>
+                }
+            </Wrapper>
+        </Fragment>
     )
 }
 
