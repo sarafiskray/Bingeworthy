@@ -91,7 +91,7 @@ const Show = (props) => {
                     headline = {review.attributes.headline}
                     description = {review.attributes.description}
                     score = {review.attributes.score}
-                    user = {review.attributes.user_id}
+                    user = {review.attributes.username}
                 />
             )
         })

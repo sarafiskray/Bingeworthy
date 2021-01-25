@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 2021_01_24_005450) do
     t.string "description"
     t.integer "score"
     t.bigint "show_id", null: false
+    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["show_id"], name: "index_reviews_on_show_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["username"], name: "index_reviews_on_username"
   end
 
   create_table "shows", force: :cascade do |t|
@@ -44,5 +44,4 @@ ActiveRecord::Schema.define(version: 2021_01_24_005450) do
   end
 
   add_foreign_key "reviews", "shows"
-  add_foreign_key "reviews", "users"
 end

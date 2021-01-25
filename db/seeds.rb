@@ -40,14 +40,14 @@ reviews = Review.create([
 		description: "Good",
 		score: 5,
 		show: shows.first,
-		user_id: 1
+		username: "testuser1"
 	},
 	{
 		headline: "I did not like",
 		description: "Bad",
 		score: 1,
 		show: shows.first,
-		user_id: 1
+		username: "testuser1"
 	}
 ])
 
