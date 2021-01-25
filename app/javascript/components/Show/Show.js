@@ -50,7 +50,7 @@ const Show = (props) => {
         .then( resp => { 
             setShow(resp.data)
             setLoaded(true)
-            //console.log(resp.data.included)
+            console.log(resp.data.included)
 
         })
 
@@ -91,6 +91,7 @@ const Show = (props) => {
                     headline = {review.attributes.headline}
                     description = {review.attributes.description}
                     score = {review.attributes.score}
+                    user = {review.attributes.user_id}
                 />
             )
         })
