@@ -68,7 +68,8 @@ const Show = (props) => {
         e.preventDefault()
 
         const show_id = show.data.id
-        axios.post('/api/v1/reviews', { ...review, show_id})
+        const username = "testuser1"
+        axios.post('/api/v1/reviews', { ...review, show_id, username})
         .then( (resp) => {
             const included = [ ...show.included, resp.data.data]
             setShow({ ...show, included})

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 		namespace :v1 do
 			resources :shows, param: :slug
 			resources :reviews, only: [:create, :destroy]
+			resources :users, param: :username
 		end
 	end
 

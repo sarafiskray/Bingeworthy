@@ -48,6 +48,7 @@ const Account = props => {
     const logout = () => {
         const user = UserPool.getCurrentUser()
         if (user) {
+            console.log(user)
             user.signOut()
         }
     }
