@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import UserPool from './UserPool'
 
+
 const SignUp = () => {
 
     const [username, setUsername] = useState('')
@@ -17,7 +18,7 @@ const SignUp = () => {
 
         UserPool.signUp(username, password, attributes, null, (err, data) => {
             if (err) console.log(err)
-            console.log(data)
+            else console.log(data)
         })
     }
 

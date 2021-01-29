@@ -4,9 +4,7 @@ import Header from './Header'
 import Review from './Review'
 import ReviewForm from './ReviewForm'
 import styled from 'styled-components'
-import SignUp from '../Cognito/SignUp'
-import Login from '../Cognito/Login'
-import Status from '../Cognito/Status'
+import Nav from '../Nav/Nav'
 
 const Wrapper = styled.div`
     margin-left: auto;
@@ -100,9 +98,7 @@ const Show = (props) => {
 
     return(
         <Fragment>
-            <Status />
-            <SignUp/>
-            <Login/>
+            <Nav />
             <Wrapper>
                 { loaded &&
                 <Fragment>

@@ -2,9 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Show from './Show' 
 import styled from 'styled-components'
-import SignUp from '../Cognito/SignUp'
-import Login from '../Cognito/Login'
-import Status from '../Cognito/Status'
+import Nav from '../Nav/Nav'
 
 const Home = styled.div`
     text-align: center;
@@ -51,9 +49,7 @@ const Shows = () => {
 
     return(
         <Home>
-            <Status />
-            <SignUp/>
-            <Login/>
+            <Nav />
             <Header>
                 <h1>Bingeworthy</h1>
                 <Subheader>Find shows you like, from people you trust.</Subheader>
