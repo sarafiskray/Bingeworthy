@@ -6,6 +6,7 @@ import UserPool from './UserPool'
 const AccountContext = createContext()
 
 const Account = props => {
+
     const getSession = async () => 
         await new Promise((resolve, reject) => {
             const user = UserPool.getCurrentUser()
@@ -54,11 +55,19 @@ const Account = props => {
         }
     }
 
+    const getUsername = () => {
+        const user = UserPool.getCurrentUser()
+        if (user) {
+            return user.username
+        }
+    }
+
     return (
         <AccountContext.Provider value={{
             authenticate,
             getSession, 
-            logout
+            logout,
+            getUsername
         }}>
             {props.children}
         </AccountContext.Provider>
