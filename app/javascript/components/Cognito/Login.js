@@ -17,6 +17,7 @@ const Login = () => {
         authenticate(username, password)
             .then(data => {
                 console.log('Logged in!', data)
+                window.location.reload()
             })
             .catch(err => {
                 console.log('Error logging in', err)

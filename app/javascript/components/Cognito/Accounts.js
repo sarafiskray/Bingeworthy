@@ -50,6 +50,7 @@ const Account = props => {
         if (user) {
             console.log(user)
             user.signOut()
+            window.location.reload()
         }
     }
 
