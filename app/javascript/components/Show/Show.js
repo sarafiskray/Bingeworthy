@@ -40,7 +40,6 @@ const Show = (props) => {
 
     const [show, setShow] = useState({})
     const [review, setReview] = useState({headline: '', description: '', score: 0 })
-    //const [reviews, setReviews] = useState({})
     const [loaded, setLoaded] = useState(false)
 
     const { getSession, logout, getUsername } = useContext(AccountContext)
@@ -87,7 +86,6 @@ const Show = (props) => {
         e.preventDefault()
 
         const show_id = show.data.id
-        const username = "testuser3"
         axios.post('/api/v1/reviews', { ...review, show_id, username})
         .then( (resp) => {
             const included = [ ...show.included, resp.data.data]
