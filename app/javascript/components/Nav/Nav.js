@@ -3,10 +3,10 @@ import SignUp from '../Cognito/SignUp'
 import Login from '../Cognito/Login'
 import Status from '../Cognito/Status'
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <Fragment>
-            <Status />
+            <Status loginStatus={props.loginStatus} logout={props.logout} username={props.username} />
             <SignUp />
             <Login />
         </Fragment>
