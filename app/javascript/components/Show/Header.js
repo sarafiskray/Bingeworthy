@@ -22,6 +22,12 @@ const Genre = styled.div`
     padding: 10px 0;
 `
 
+const TextScore = styled.div`
+    font-size: 18px;
+    padding: 10px 0;
+`
+
+
 const Header = (props) => {
     const {title, image_url, genre, year, avg_score} = props.attributes 
     const numReviews = props.reviews.length
@@ -30,9 +36,10 @@ const Header = (props) => {
         <Wrapper>
             <h1 className="show-title"> <img src={image_url} alt={title} /> {title + " (" + year + ")"} </h1>
             <div>
+                <Genre> {genre} </Genre>
                 <TotalReviews> {numReviews + " user reviews."} </TotalReviews>
                 <Rating score={avg_score}/>
-                <Genre> {genre} </Genre>
+                <TextScore>{avg_score.toFixed(1)} out of 5 stars</TextScore>
             </div>
 
 

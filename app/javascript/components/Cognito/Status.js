@@ -1,26 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { AccountContext } from './Accounts'
 
-const Status = () => {
-
-    const [status, setStatus] = useState(false)
-
-    const { getSession, logout } = useContext(AccountContext)
-
-    useEffect(() => {
-        getSession()
-            .then(session => {
-                console.log('Session: ', session)
-                setStatus(true)
-            })
-    }, [])
+const Status = (props) => {
 
     return (
         <div>
-            {status ? (
+            {props.loginStatus ? (
                 <div>
-                    You are logged in!
-                    <button onClick={logout}>Log Out</button>
+                    {"Hello " + props.username + "!"}
+                    <button onClick={props.logout}>Log Out</button>
                 </div>
             ) : 'Login with username or email'}
         </div>

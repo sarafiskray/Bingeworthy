@@ -29,6 +29,9 @@ const Review = (props) => {
             <div className="review-rating">
                 <Rating score={props.score} />
             </div>
+            <div className="user">
+                {props.user}
+            </div>
         </ReviewCard>
     )
 }

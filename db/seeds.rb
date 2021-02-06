@@ -28,18 +28,19 @@ shows = Show.create([
 	}
 ])
 
+users = User.create([
+	{
+		username: "testuser1"
+	}
+])
+
 reviews = Review.create([
 	{
 		headline: "I liked",
 		description: "Good",
 		score: 5,
-		show: shows.first
-	},
-	{
-		headline: "I did not like",
-		description: "Bad",
-		score: 1,
-		show: shows.first
+		show: shows.first,
+		username: "testuser1"
 	}
 ])
 

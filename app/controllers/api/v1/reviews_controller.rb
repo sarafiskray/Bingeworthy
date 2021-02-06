@@ -27,7 +27,7 @@ module Api
 			private
 
 			def review_params
-				params.require(:review).permit(:headline, :description, :score, :show_id)
+				params.require(:review).permit(:headline, :description, :score, :show_id, :username)
 			end
 		end
 	end

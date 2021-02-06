@@ -1,5 +1,7 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import UserPool from './UserPool'
+
 
 const SignUp = () => {
 
@@ -17,7 +19,13 @@ const SignUp = () => {
 
         UserPool.signUp(username, password, attributes, null, (err, data) => {
             if (err) console.log(err)
-            console.log(data)
+            else {
+                axios.post('/api/v1/users', { username: username})
+                .then( resp => console.log(resp))
+                .catch( resp => console.log(resp))
+                console.log(data)
+                //window.location.reload()
+            }
         })
     }
 
