@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Rating from '../Rating/Rating'
 
 const Wrapper = styled.div`
-    padding: 50px 100px 50px 0;
+    padding: 0 100px 50px 0;
 
     img {
         width: 50px;

@@ -10,7 +10,7 @@ const Home = styled.div`
     text-align: center;
 `
 const Header = styled.div`
-    padding: 100px 100px 10px 100px;
+    padding: 10px 100px 10px 100px;
 
     h1 {
         font-size: 42px;
@@ -25,7 +25,7 @@ const Grid = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     width: 100%;
-    padding: 20px;
+    padding: 100px 20px 20px 20px;
 `
 
 

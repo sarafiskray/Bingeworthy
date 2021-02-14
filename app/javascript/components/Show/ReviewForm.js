@@ -79,15 +79,12 @@ const SubmitBtn = styled.button`
 `
 
 const FormWrapper = styled.div`
-  background:white;
   padding:20px;
   margin-left: 15px;
   border-radius: 0;
-  padding-bottom:80px;
   border-left: 1px solid rgba(0,0,0,0.1);
   height: 100vh;
-  padding-top: 100px;
-  background: grey;
+  background: black;
   padding-right: 80px;
 `
 

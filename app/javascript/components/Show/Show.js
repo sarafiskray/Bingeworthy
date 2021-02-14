@@ -12,15 +12,18 @@ const Wrapper = styled.div`
     margin-right: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    height: 100%;
 `
 const Column = styled.div`
     height: 100vh;
+
     overflow: scroll;
+
     scrollbar-width: none; 
     -ms-overflow-style: none; 
 
     &:last-child {
-        background: grey;
+        background: black;
     }
 
     ::-webkit-scrollbar { 
