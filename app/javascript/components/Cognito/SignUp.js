@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import UserPool from './UserPool'
+import Popup from 'reactjs-popup'
 
 
 const SignUp = () => {
@@ -30,23 +31,25 @@ const SignUp = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <input 
-                    value = {username}
-                    onChange = {event => setUsername(event.target.value)}
-                />
-                <input 
-                    value = {email}
-                    onChange = {event => setEmail(event.target.value)}
-                />
-                <input 
-                    value = {password}
-                    onChange = {event => setPassword(event.target.value)}
-                />
-                <button type='submit'>Sign Up</button>
-            </form>
-        </div>
+        <Popup trigger={<button className="button"> Sign Up </button>} modal>
+            <div>
+                <form onSubmit={onSubmit}>
+                    <input 
+                        value = {username}
+                        onChange = {event => setUsername(event.target.value)}
+                    />
+                    <input 
+                        value = {email}
+                        onChange = {event => setEmail(event.target.value)}
+                    />
+                    <input 
+                        value = {password}
+                        onChange = {event => setPassword(event.target.value)}
+                    />
+                    <button type='submit'>Sign Up</button>
+                </form>
+            </div>
+        </Popup>
     )
 }
 

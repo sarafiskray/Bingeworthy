@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import SignUp from '../Cognito/SignUp'
 import Login from '../Cognito/Login'
 import Status from '../Cognito/Status'
+import Logout from '../Cognito/Logout'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
@@ -9,7 +10,7 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 const Wrapper = styled.div`
   width: 100%;
   height: 65px;
-  line-height: 65px;
+  line-height: 2;
   background-color: black;
   color: white;
   margin-left: auto;
@@ -38,17 +39,13 @@ const Left = styled.div`
 const Right = styled.div`
   flex-basis: 12%;
   align-self: flex-end !important;
-  a {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer
-  }
+  
 `
 
 const Logo = styled.span`
   font-family: 'Poppins-ExtraBold';
   font-weight: bold;
-  font-size: 20px;
+  font-size: 32px;
   a {
     font-size: inherit;
     font-weight: inherit;
@@ -69,9 +66,15 @@ const Nav = (props) => {
               <Right>
                 { 
                 props.loginStatus ? 
-                <Status loginStatus={props.loginStatus} logout={props.logout} username={props.username} />
+                <Fragment>
+                  <Status username={props.username} />
+                  <Logout logout={props.logout} />
+                </Fragment>
                 :
-                <span>Sign Up</span>
+                <Fragment>
+                  <Login />
+                  <SignUp />
+                </Fragment>
                 }   
               </Right>
             </Navbar>  
