@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
 `
 
 const Container = styled.div`

@@ -10,20 +10,23 @@ import Nav from '../Nav/Nav'
 const Wrapper = styled.div`
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     height: 100%;
 `
 const Column = styled.div`
     height: 100vh;
-
-    overflow: scroll;
-
+    width: 50%;
     scrollbar-width: none; 
     -ms-overflow-style: none; 
 
+    &:first-child {
+        overflow: scroll;
+    }
+
     &:last-child {
         background: black;
+        position: fixed;
+        margin-left: 50%;
+        top: 65px;
     }
 
     ::-webkit-scrollbar { 
@@ -33,7 +36,7 @@ const Column = styled.div`
 `
 
 const ContentWrapper = styled.div`
-    padding-left: 50px;
+    padding: 50px 50px 0 50px;
 `
 
 
