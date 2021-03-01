@@ -23,47 +23,43 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1300px;
-`
-
-const Navbar = styled.nav`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`
-
-const Left = styled.div`
-  flex-basis: auto;
-  align-self: flex-start !important;
   margin-left: 24px;
-`
+  margin-right: 24px;
+  max-width: 1300px; 
 
-const Right = styled.div`
-  flex-basis: 12%;
-  align-self: flex-end !important;
-  
+  nav ul li {
+    margin-left: 10px;
+  }
 `
 
 const Logo = styled.span`
-  font-family: 'Poppins-ExtraBold';
-  font-weight: bold;
   font-size: 32px;
-  a {
-    font-size: inherit;
-    font-weight: inherit;
-    font-family: inherit;
-    color: #fff;
-    text-decoration: none;
-  }
 `
 
 const Nav = (props) => {
     return (
         <Wrapper>
           <Container>
-            <Navbar>
+            <nav className="black">
+              <div className="nav-wrapper">
+                <Link className="left" to={"/"}>
+                  <Logo>Bingeworthy</Logo>
+                </Link>
+                    { 
+                    props.loginStatus ? 
+                    <ul className="right">
+                      <li><Status username={props.username} /></li>
+                      <li><Logout logout={props.logout} /></li>
+                    </ul>
+                    :
+                    <ul className="right">
+                      <li><Login /></li>
+                      <li><SignUp /></li>
+                    </ul>
+                    }   
+              </div>
+            </nav>
+            {/* <Navbar>
               <Left>
                 <Logo><Link to="/">Bingeworthy</Link></Logo>
               </Left>
@@ -81,7 +77,7 @@ const Nav = (props) => {
                 </Fragment>
                 }   
               </Right>
-            </Navbar>  
+            </Navbar>   */}
           </Container>
         </Wrapper>
         

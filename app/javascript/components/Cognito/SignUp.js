@@ -33,7 +33,7 @@ const SignUp = () => {
     }
 
     return (
-        <Popup trigger={<button className="button"> Sign Up </button>} modal>
+        <Popup trigger={<button className="btn"> Sign Up </button>} modal>
             <div>
                 <form onSubmit={onSubmit}>
                     <h1>Join the community!</h1>
