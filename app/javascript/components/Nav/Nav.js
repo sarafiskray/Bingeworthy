@@ -6,7 +6,7 @@ import Logout from '../Cognito/Logout'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
-
+//eventually might want to get rid of wrapper + container
 const Wrapper = styled.div`
   width: 100%;
   height: 65px;
@@ -59,33 +59,8 @@ const Nav = (props) => {
                     }   
               </div>
             </nav>
-            {/* <Navbar>
-              <Left>
-                <Logo><Link to="/">Bingeworthy</Link></Logo>
-              </Left>
-              <Right>
-                { 
-                props.loginStatus ? 
-                <Fragment>
-                  <Status username={props.username} />
-                  <Logout logout={props.logout} />
-                </Fragment>
-                :
-                <Fragment>
-                  <Login />
-                  <SignUp />
-                </Fragment>
-                }   
-              </Right>
-            </Navbar>   */}
           </Container>
         </Wrapper>
-        
-        // <Fragment>
-        //     <Status loginStatus={props.loginStatus} logout={props.logout} username={props.username} />
-        //     <SignUp />
-        //     <Login />
-        // </Fragment>
     )
 }
 
