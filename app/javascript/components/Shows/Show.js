@@ -18,14 +18,16 @@ const Show = (props) => {
     return (
         <Wrapper>
             <Link to={"/shows/" + slug}>
-                <div className="card small">
-                    <div className="card-image">
-                        <img src={image_url} alt={name} />
-                    </div>
-                    <div className="card-content">
-                        <span className="card-title">{title + " (" + year + ")"}</span>
-                        <p>{genre}</p>
-                        <Rating score={avg_score} />
+                <div className = "col s12 m4 l3">
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={image_url} alt={title} />
+                        </div>
+                        <div className="card-content">
+                            <span className="card-title">{title + " (" + year + ")"}</span>
+                            <p>{genre}</p>
+                            <Rating score={avg_score} />
+                        </div>
                     </div>
                 </div>
             </Link>

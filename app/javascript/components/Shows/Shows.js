@@ -1,33 +1,23 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, Fragment} from 'react'
 import { AccountContext } from '../Cognito/Accounts'
 import axios from 'axios'
 import Show from './Show' 
 import styled from 'styled-components'
 import Nav from '../Nav/Nav'
 
-
-const Home = styled.div`
-    text-align: center;
-`
 const Header = styled.div`
-    padding: 100px 100px 10px 100px;
+    padding: 100px 100px 60px 100px;
+    text-align: center;
 
     h1 {
         font-size: 42px;
     }
-`
-const Subheader = styled.div`
-    font-weight: 300;
-    font-size: 26px;
-`
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    width: 100%;
-    padding: 80px 80px 20px 80px;
-`
 
+    h3 {
+        font-weight: 300;
+        font-size: 26px;
+    }
+`
 
 const Shows = () => {
 
@@ -70,18 +60,23 @@ const Shows = () => {
     const username = getUsername()
 
     return(
-        <Home>
+        <Fragment>
             <Nav 
                 loginStatus={loginStatus}
                 logout = {logout} 
                 username = {username} 
             />
-            <Header>
-                <h1>Bingeworthy</h1>
-                <Subheader>Find shows you like, from people you trust.</Subheader>
-            </Header>
-            <Grid>{listShows}</Grid>
-        </Home>
+            <div className="container">
+                <Header>
+                    <h1>Bingeworthy</h1>
+                    <h3>Shows you like, from people you trust.</h3>
+                </Header>
+                <div className="row">
+                    {listShows}
+                </div>
+            </div>
+
+        </Fragment>
         
        
     )
